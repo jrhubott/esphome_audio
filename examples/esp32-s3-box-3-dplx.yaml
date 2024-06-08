@@ -58,8 +58,7 @@ api:
     - script.execute: draw_display
 
 ota:
-  platform: esphome
-
+  
 logger:
   deassert_rts_dtr: true
   hardware_uart: USB_SERIAL_JTAG
