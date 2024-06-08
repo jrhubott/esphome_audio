@@ -258,7 +258,8 @@ microphone:
       - self
 
 micro_wake_word:
-  model: https://raw.githubusercontent.com/kahrendt/microWakeWord/18-add-beta-alexa-model/models/betas/alexa_v2.json
+  model: hey_jarvis
+#  https://raw.githubusercontent.com/kahrendt/microWakeWord/18-add-beta-alexa-model/models/betas/alexa_v2.json
   on_wake_word_detected:
     - media_player.pause:
     - voice_assistant.start:
