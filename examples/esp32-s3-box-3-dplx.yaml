@@ -58,7 +58,7 @@ api:
     - script.execute: draw_display
 
 ota:
-  platform: esphome
+platform: esphome
 
 logger:
   deassert_rts_dtr: true
