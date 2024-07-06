@@ -371,7 +371,7 @@ void ADFPipeline::watch_() {
       if(this->requested_ == PipelineRequest::STOPPED){
         set_state_(PipelineState::STOPPED);
       }
-      else if ( millis() - this->finish_timeout_invoke_ > 16000){
+      else if ( millis() - this->finish_timeout_invoke_ > this->wait_for_finish_timeout_ms_){
         this->requested_ = PipelineRequest::STOPPED;
         set_state_(PipelineState::ABORTING);
       }
@@ -433,6 +433,9 @@ bool ADFPipeline::request_settings(AudioPipelineSettingsRequest &request) {
   for (auto it = pipeline_elements_.rbegin(); it != pipeline_elements_.rend(); ++it) {
     if (*it != request.requested_by) {
       (*it)->on_settings_request(request);
+    }
+    else {
+      break;
     }
   }
   return !request.failed;
